@@ -1,0 +1,162 @@
+@import "../../css-config/mixins.scss";
+
+.main-header {
+  width: 100%;
+  padding: 0 20px;
+  background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+  color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 99;
+  @include md {
+    padding: 0 40px;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    // max-width: 1200px;
+    margin: 0 auto;
+    @include md {
+      height: 80px;
+    }
+
+    .left {
+      list-style-type: none;
+      display: none;
+      gap: 25px;
+      @include md {
+        display: flex;
+      }
+
+      li {
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        .custom-link {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+
+    .center {
+      font-size: 22px;
+      font-weight: 700;
+      cursor: pointer;
+      @include md {
+        font-size: 34px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      @include md {
+        gap: 25px;
+      }
+      svg {
+        font-size: 22px;
+        cursor: pointer;
+        @include md {
+          font-size: 30px;
+        }
+      }
+
+      .cart-icon {
+        position: relative;
+
+        span {
+          min-width: 20px;
+          text-align: center;
+          background-color: red;
+          padding: 2.5px;
+          position: absolute;
+          top: -5px;
+          right: -12px;
+          font-size: 12px;
+          line-height: 1;
+          border-radius: 10px;
+        }
+      }
+  
+
+      .user-profile {
+        position: relative;
+        cursor: pointer;
+      }
+
+      .profile-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: none; /* Hidden by default */
+      }
+
+      .user-profile:hover .profile-dropdown {
+        display: block; /* Show the dropdown on hover */
+      }
+
+      .logout-button {
+        background-color: #f44336;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+      }
+    }
+  }
+
+  &.sticky-header {
+    position: sticky;
+    top: 0;
+    transform: translateY(-60px);
+    animation: stickyHeader 0.3s ease forwards;
+  }
+}
+
+.category-list {
+  position: fixed;
+  top: 55px;
+  left: 130px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  border-radius: 4px;
+  z-index: 1000;
+  width: 250px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.category-list li {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-top: 1px solid #ccc;
+}
+
+.category-list li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+@keyframes stickyHeader {
+  0% {
+    transform: translateY(-60px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,81 @@
+@import "../../css-config/mixins.scss";
+.category-main-content {
+  width: 100%;
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include md {
+    margin: 50px 0;
+  }
+  .layout {
+    max-width: calc(100% - 20px);
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    @include md {
+      max-width: calc(100% - 50px);
+      padding: 30px 50px;
+      gap: 30px;
+    }
+
+    .left {
+      flex: 1;
+      position: sticky;
+      height: 100%;
+      top: 50px;
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      @include md {
+        min-width: 220px;
+        gap: 20px;
+      }
+      .filterItem {
+        margin-bottom: 30px;
+
+        h2 {
+          font-weight: 600;
+          margin-bottom: 10px;
+          font-size: 18px;
+
+          @include md {
+            margin-bottom: 20px;
+            font-size: 24px;
+          }
+        }
+        .inputItem {
+          margin-bottom: 10px;
+          label {
+            margin-left: 10px;
+            font-size: 16px;
+            @include md {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+
+    .right {
+      flex: 3;
+      width: 50%;
+    
+      @include md {
+        width: 80%;
+      }
+      .category-title {
+        font-size: 24px;
+        @include md {
+          font-size: 36px;
+        }
+      }
+      .products-container {
+        margin: 20px 0;
+        @include md {
+          margin: 50px 0;
+        }
+      }
+    }
+  }
+}
